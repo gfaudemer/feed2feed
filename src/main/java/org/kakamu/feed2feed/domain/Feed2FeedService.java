@@ -3,16 +3,18 @@ package org.kakamu.feed2feed.domain;
 import org.kakamu.feed2feed.repositories.MessageRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class Feed2FeedService {
 
-    @Autowired
-    private MessageRepository messageRepository;
-
     private static final Logger logger = LoggerFactory.getLogger(Feed2FeedService.class);
+
+    private final MessageRepository messageRepository;
+
+    public Feed2FeedService(MessageRepository messageRepository){
+        this.messageRepository = messageRepository;
+    }
 
     public int readFromMastodonAndCopy(){
         logger.debug("Starting treatment");

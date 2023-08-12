@@ -5,6 +5,15 @@ Feed2X:
 RSSFeedReader:
   urls: https://mastodon.social/@guillaume_faudemer.rss # RSS Feed URL to read messages from
 
+spring:
+  datasource:
+    url: "jdbc:h2:mem:feed2feed"
+    driverClassName: org.h2.Driver
+    username: feed2feed
+    password: needToBeVaulted
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+
 logging:
   level:
     org:

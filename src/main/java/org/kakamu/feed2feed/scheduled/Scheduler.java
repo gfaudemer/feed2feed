@@ -3,7 +3,6 @@ package org.kakamu.feed2feed.scheduled;
 import org.kakamu.feed2feed.domain.Feed2FeedService;
 import org.kakamu.feed2feed.utils.DateUtils;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 import org.slf4j.Logger;
@@ -15,8 +14,11 @@ public class Scheduler {
 
     private static final Logger logger = LoggerFactory.getLogger(Scheduler.class);
 
-    @Autowired
-    private Feed2FeedService feed2FeedService;
+    private final Feed2FeedService feed2FeedService;
+
+    public Scheduler(Feed2FeedService feed2FeedService){
+        this.feed2FeedService = feed2FeedService;
+    }
 
     @Scheduled(cron = "${Feed2X.cron}")
     public void copyLastMessages(){
