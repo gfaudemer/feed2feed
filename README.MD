@@ -6,9 +6,9 @@ Features
 -
 
 * Read last RSS items
-* Stores in file database (H2)
+* Stores in file database (H2) (next step)
 
 
 Known Bugs
 - 
-* Still a work in progress so it doesn't yet
+* Still a work in progress so it doesn't work yet
