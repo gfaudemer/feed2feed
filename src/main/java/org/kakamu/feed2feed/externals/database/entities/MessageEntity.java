@@ -3,7 +3,7 @@ package org.kakamu.feed2feed.externals.database.entities;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 
-@Entity
+@Entity(name = "Message")
 public class MessageEntity {
 
     @Id
