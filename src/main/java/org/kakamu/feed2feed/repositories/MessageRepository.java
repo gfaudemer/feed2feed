@@ -1,5 +1,6 @@
 package org.kakamu.feed2feed.repositories;
 
+import lombok.RequiredArgsConstructor;
 import org.kakamu.feed2feed.domain.Message;
 import org.kakamu.feed2feed.externals.database.DatabaseAdapter;
 import org.kakamu.feed2feed.externals.rss.RSSFeedReader;
@@ -14,6 +15,7 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 
 @Component
+@RequiredArgsConstructor
 public class MessageRepository {
 
     private static final RSSMapper mapper = Mappers.getMapper(RSSMapper.class);
@@ -23,13 +25,6 @@ public class MessageRepository {
     private final DatabaseAdapter databaseAdapter;
     private final XClientApi xClientApi;
 
-    public MessageRepository(RSSFeedReader rssFeedReader,
-                             DatabaseAdapter databaseAdapter,
-                             XClientApi xClientApi){
-        this.databaseAdapter = databaseAdapter;
-        this.rssFeedReader = rssFeedReader;
-        this.xClientApi = xClientApi;
-    }
 
     @Value("${Feed2X.nLastMessages}")
     private int nLastMessages;
