@@ -18,7 +18,7 @@ public class Scheduler {
 
     private final Feed2FeedService feed2FeedService;
 
-    @Scheduled(cron = "${Feed2X.cron}")
+    @Scheduled(cron = "${feed2feed.scheduler.cron}")
     public void copyLastMessages(){
         Date startDate = new Date();
         logger.info("Waking up: {}", DateUtils.dateFormat.format(startDate));

@@ -2,20 +2,20 @@ package org.kakamu.feed2feed.externals.rss;
 
 import com.apptasticsoftware.rssreader.Item;
 import com.apptasticsoftware.rssreader.RssReader;
-import org.springframework.beans.factory.annotation.Value;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
 
 @Component
+@AllArgsConstructor
 public class RSSFeedReader {
 
-    @Value("${RSSFeedReader.urls}")
-    List<String> urls;
+    RSSProperties rssProperties;
 
     public List<Item> getLastMessages(int nLastMessages){
         var rssReader = new RssReader();
-        return rssReader.read(urls)
+        return rssReader.read(rssProperties.urls())
                 .limit(nLastMessages)
                 .toList();
     }

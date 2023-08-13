@@ -1,8 +1,10 @@
-Feed2X:
-  cron: "*/30 * * * * *" # Treatment launch CRON expression. By default, starts every 30 seconds
-  nLastMessages: 10 # NB last messages to read, not meant to change after release
+feed2feed:
+  scheduler:
+    cron: "*/30 * * * * *" # Treatment launch CRON expression. By default, starts every 30 seconds
+  domain:
+    nLastMessages: 10 # NB last messages to read, not meant to change after release
 
-RSSFeedReader:
+rss:
   urls: https://mastodon.social/@guillaume_faudemer.rss # RSS Feed URL to read messages from
 
 spring:

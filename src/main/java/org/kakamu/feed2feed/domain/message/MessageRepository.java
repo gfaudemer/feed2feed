@@ -1,6 +1,7 @@
 package org.kakamu.feed2feed.domain.message;
 
 import lombok.RequiredArgsConstructor;
+import org.kakamu.feed2feed.domain.Feed2FeedProperties;
 import org.kakamu.feed2feed.externals.database.DatabaseAdapter;
 import org.kakamu.feed2feed.externals.rss.RSSFeedReader;
 import org.kakamu.feed2feed.externals.x.XClientApi;
@@ -8,7 +9,6 @@ import org.kakamu.feed2feed.externals.rss.RSSMapper;
 import org.mapstruct.factory.Mappers;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -23,12 +23,10 @@ public class MessageRepository {
     private final RSSFeedReader rssFeedReader;
     private final DatabaseAdapter databaseAdapter;
     private final XClientApi xClientApi;
-
-    @Value("${Feed2X.nLastMessages}")
-    private int nLastMessages;
+    private final Feed2FeedProperties feed2FeedProperties;
 
     public List<Message> readLastMessages() {
-        var lastMessages = mapper.map(rssFeedReader.getLastMessages(nLastMessages));
+        var lastMessages = mapper.map(rssFeedReader.getLastMessages(feed2FeedProperties.nLastMessages()));
         if(logger.isDebugEnabled()) {
             lastMessages.stream().map(Message::toString).forEach(logger::debug);
         }
