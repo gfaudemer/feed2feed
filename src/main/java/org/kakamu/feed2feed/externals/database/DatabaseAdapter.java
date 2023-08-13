@@ -1,7 +1,9 @@
 package org.kakamu.feed2feed.externals.database;
 
 import lombok.AllArgsConstructor;
-import org.kakamu.feed2feed.domain.Message;
+import org.kakamu.feed2feed.domain.message.Message;
+import org.kakamu.feed2feed.externals.database.h2.H2Mapper;
+import org.kakamu.feed2feed.externals.database.h2.H2MessageRepository;
 import org.mapstruct.factory.Mappers;
 import org.springframework.stereotype.Component;
 
@@ -14,13 +16,13 @@ public class DatabaseAdapter {
 
     private static final H2Mapper mapper = Mappers.getMapper(H2Mapper.class);
 
-    private final MessageH2Repository messageH2Repository;
+    private final H2MessageRepository h2MessageRepository;
 
     public boolean doesNotExist(Message message){
-        return Optional.ofNullable(messageH2Repository.findByGuid(message.getGuid())).isEmpty();
+        return Optional.ofNullable(h2MessageRepository.findByGuid(message.getGuid())).isEmpty();
     }
 
     public void save(List<Message> newMessages) {
-        messageH2Repository.saveAll(mapper.map(newMessages));
+        h2MessageRepository.saveAll(mapper.map(newMessages));
     }
 }

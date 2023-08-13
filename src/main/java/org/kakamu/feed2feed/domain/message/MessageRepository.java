@@ -1,10 +1,9 @@
-package org.kakamu.feed2feed.repositories;
+package org.kakamu.feed2feed.domain.message;
 
 import lombok.RequiredArgsConstructor;
-import org.kakamu.feed2feed.domain.Message;
 import org.kakamu.feed2feed.externals.database.DatabaseAdapter;
 import org.kakamu.feed2feed.externals.rss.RSSFeedReader;
-import org.kakamu.feed2feed.externals.XClientApi;
+import org.kakamu.feed2feed.externals.x.XClientApi;
 import org.kakamu.feed2feed.externals.rss.RSSMapper;
 import org.mapstruct.factory.Mappers;
 import org.slf4j.Logger;
@@ -24,7 +23,6 @@ public class MessageRepository {
     private final RSSFeedReader rssFeedReader;
     private final DatabaseAdapter databaseAdapter;
     private final XClientApi xClientApi;
-
 
     @Value("${Feed2X.nLastMessages}")
     private int nLastMessages;

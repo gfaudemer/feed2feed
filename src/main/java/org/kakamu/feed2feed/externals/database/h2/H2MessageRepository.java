@@ -1,9 +1,9 @@
-package org.kakamu.feed2feed.externals.database;
+package org.kakamu.feed2feed.externals.database.h2;
 
 import org.kakamu.feed2feed.externals.database.entities.MessageEntity;
 import org.springframework.data.repository.CrudRepository;
 
-public interface MessageH2Repository extends CrudRepository<MessageEntity, String> {
+public interface H2MessageRepository extends CrudRepository<MessageEntity, String> {
 
     MessageEntity findByGuid(String guid);
 }

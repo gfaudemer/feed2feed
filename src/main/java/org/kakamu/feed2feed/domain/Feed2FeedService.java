@@ -1,7 +1,7 @@
 package org.kakamu.feed2feed.domain;
 
 import lombok.AllArgsConstructor;
-import org.kakamu.feed2feed.repositories.MessageRepository;
+import org.kakamu.feed2feed.domain.message.MessageRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;

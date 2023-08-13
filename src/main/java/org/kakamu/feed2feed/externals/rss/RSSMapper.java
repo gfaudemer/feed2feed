@@ -1,7 +1,7 @@
 package org.kakamu.feed2feed.externals.rss;
 
 import com.apptasticsoftware.rssreader.Item;
-import org.kakamu.feed2feed.domain.Message;
+import org.kakamu.feed2feed.domain.message.Message;
 import org.mapstruct.Mapper;
 
 import java.util.List;

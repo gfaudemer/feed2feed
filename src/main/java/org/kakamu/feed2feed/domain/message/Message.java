@@ -1,4 +1,4 @@
-package org.kakamu.feed2feed.domain;
+package org.kakamu.feed2feed.domain.message;
 
 import lombok.Data;
 

@@ -1,4 +1,4 @@
-package org.kakamu.feed2feed.externals;
+package org.kakamu.feed2feed.externals.x;
 
 import org.springframework.stereotype.Component;
 
